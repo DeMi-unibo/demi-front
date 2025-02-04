@@ -1,15 +1,7 @@
-import { Box, Heading } from '@chakra-ui/react';
-import React from 'react';
+import {  Heading } from "@chakra-ui/react";
 
 function Metadata() {
-  return (
-    <Box textAlign="center" p={5}>
-      <Heading as="h2" size="xl" mb={4}>
-        Metadata Page
-      </Heading>
-      <p>Here you can provide metadata related to your datasets and insights.</p>
-    </Box>
-  );
+    return <Heading>Metadata Page</Heading>;
 }
 
 export default Metadata;
