@@ -7,7 +7,7 @@ import RootLayout from "./RootLayout";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/demi-front/',
     element: <RootLayout />,
     children: [
       { index: true, element: <HomePage /> },
