@@ -1,10 +1,9 @@
-import { Box, Button, Heading } from '@chakra-ui/react';
+import { Box, Heading, Button } from '@chakra-ui/react'
+import React from 'react'
 
-
-function App() {
-
-    return (
-        <>
+function HomePage() {
+  return (
+    <>
             <Box textAlign="center" p={5}>
                 <Heading as="h1" size="2xl" mb={4}>
                     Welcome to DeMi!
@@ -17,7 +16,7 @@ function App() {
                 </Button>
             </Box>
         </>
-    );
+  )
 }
 
-export default App;
+export default HomePage
