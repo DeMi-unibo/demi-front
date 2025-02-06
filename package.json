@@ -13,6 +13,8 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.11.0",
+    "@amcharts/amcharts5-geodata": "^5.1.4",
     "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^3.6.0",
     "@emotion/react": "^11.14.0",
