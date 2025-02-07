@@ -14,11 +14,11 @@ interface Props {
 function ChartMap({ width, height }: Props) {
   const url =
     "https://raw.githubusercontent.com/mjavadf/DeMi/refs/heads/main/datasets/mashup/italy_immigration_trends_by_country_and_permit_iso2.csv";
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortColumn, setSortColumn] = useState("");
-  const [ascending, setAscending] = useState(true);
+  const [searchTerm] = useState("");
+  const [sortColumn] = useState("");
+  const [ascending] = useState(true);
 
-  const { data, isLoading, error } = useCSVData(
+  const { data } = useCSVData(
     url,
     searchTerm,
     sortColumn,

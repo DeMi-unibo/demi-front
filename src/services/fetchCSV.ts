@@ -4,7 +4,7 @@ export const fetchCSV = async (url: string) => {
   const response = await fetch(url);
   const csvText = await response.text();
 
-  return new Promise<any[]>((resolve, reject) => {
+  return new Promise<any[]>((resolve) => {
     Papa.parse(csvText, {
       complete: (result) => {
         resolve(result.data); // CSV rows as array of objects
