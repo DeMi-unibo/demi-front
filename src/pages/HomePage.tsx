@@ -7,8 +7,7 @@ import {
   Circle,
   Float
 } from '@chakra-ui/react';
-import { Blockquote } from '../components/ui/blockquote';
-
+import { Blockquote } from '../components/ui/blockquote'
 function HomePage() {
   return (
     <Container maxW="container.lg">
