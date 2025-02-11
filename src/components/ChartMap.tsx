@@ -9,9 +9,10 @@ import { useCSVData } from "../hooks/useCSVData";
 interface Props {
     width: string;
     height: string;
+    year: string;
 }
 
-function ChartMap({ width, height }: Props) {
+function ChartMap({ width, height, year }: Props) {
     const url =
         "https://raw.githubusercontent.com/mjavadf/DeMi/refs/heads/main/datasets/mashup/italy_immigration_trends_by_country_and_permit_iso2.csv";
     const [searchTerm] = useState("");
@@ -25,7 +26,7 @@ function ChartMap({ width, height }: Props) {
         if (data) {
             const filteredData = data.filter(
                 (row) =>
-                    row.Year === 2020 &&
+                    row.Year === Number(year) &&
                     row.Sex === "Total" &&
                     row.Dataset_Code === "D4"
             );
@@ -42,9 +43,55 @@ function ChartMap({ width, height }: Props) {
                 am5map.MapChart.new(root, {
                     panX: "rotateX",
                     panY: "none",
+                    wheelY: "none",
                     projection: am5map.geoEquirectangular(),
                 })
             );
+
+            let overlay = root.container.children.push(
+                am5.Container.new(root, {
+                    width: am5.p100,
+                    height: am5.p100,
+                    layer: 100,
+                    visible: false,
+                })
+            );
+
+            // curtain
+            overlay.children.push(
+                am5.Rectangle.new(root, {
+                    width: am5.p100,
+                    height: am5.p100,
+                    fill: am5.color(0x000000),
+                    fillOpacity: 0.3,
+                })
+            );
+
+            // message 
+            overlay.children.push(
+                am5.Label.new(root, {
+                    text: "Use CTRL + Scroll to zoom",
+                    fontSize: 30,
+                    x: am5.p50,
+                    y: am5.p50,
+                    centerX: am5.p50,
+                    centerY: am5.p50,
+                })
+            );
+
+            chart.events.on("wheel", function (ev) {
+                // Show overlay when wheel is used over chart
+                if (ev.originalEvent.ctrlKey) {
+                    ev.originalEvent.preventDefault();
+                    chart.set("wheelY", "zoom");
+                } else {
+                    chart.set("wheelY", "none");
+                    overlay.show();
+                    overlay.setTimeout(function () {
+                        overlay.hide();
+                    }, 800);
+                }
+            });
 
             // Create polygon series for the map and exclude Antarctica and Greenland
             let polygonSeries = chart.series.push(
@@ -75,20 +122,34 @@ function ChartMap({ width, height }: Props) {
             ]);
 
             // Customize Italy's appearance
-            polygonSeries.mapPolygons.template.adapters.add("fill", function(fill, target) {
-                if (target.dataItem && (target.dataItem.dataContext as { id: string }).id === "IT") {
-                    return am5.color(0x0A36AF); // Change Italy's color to blue
+            polygonSeries.mapPolygons.template.adapters.add(
+                "fill",
+                function (fill, target) {
+                    if (
+                        target.dataItem &&
+                        (target.dataItem.dataContext as { id: string }).id ===
+                            "IT"
+                    ) {
+                        return am5.color(0x0a36af); // Change Italy's color to blue
+                    }
+                    return fill;
                 }
-                return fill;
-            });
+            );
 
             // Customize Italy's tooltip
-            polygonSeries.mapPolygons.template.adapters.add("tooltipText", function(tooltipText, target) {
-                if (target.dataItem && (target.dataItem.dataContext as { id: string }).id === "IT") {
-                    return "{name}"; // Only show the name for Italy
+            polygonSeries.mapPolygons.template.adapters.add(
+                "tooltipText",
+                function (tooltipText, target) {
+                    if (
+                        target.dataItem &&
+                        (target.dataItem.dataContext as { id: string }).id ===
+                            "IT"
+                    ) {
+                        return "{name}"; // Only show the name for Italy
+                    }
+                    return tooltipText;
                 }
-                return tooltipText;
-            });
+            );
 
             // Set data for the polygons (you'll replace the hardcoded data with filtered data)
             polygonSeries.data.setAll(
@@ -138,7 +199,7 @@ function ChartMap({ width, height }: Props) {
                 root.dispose();
             };
         }
-    }, [data]);
+    }, [data, year]);
 
     return <Box id="chartdiv" width={width} height={height}></Box>;
 }
