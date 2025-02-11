@@ -42,8 +42,7 @@ function Visualizations() {
 
                 <Tabs.Content value="D4">
                     <Heading mb={2} id="map-heading" textAlign="center">
-                        Number of immigrants to italy in {year} based on
-                        country:{" "}
+                    Immigrant Numbers to Italy in {year} by Country
                     </Heading>
                     <Flex
                         justify="center"
@@ -71,8 +70,7 @@ function Visualizations() {
                 </Tabs.Content>
                 <Tabs.Content value="D5">
                     <Heading mb={2} id="map-heading" textAlign="center">
-                        Number of immigrants to italy in {year} based on country
-                        and type of residence permit
+                    Immigrant Numbers to Italy in {year} by Country and Residence Permit Type
                     </Heading>
                     <Flex justify="center" mb={4} direction="row" align="center">
                         <Flex direction="column" align="center" mr={8}>
