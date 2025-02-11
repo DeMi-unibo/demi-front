@@ -59,6 +59,8 @@ function ChartMap({ width, height }: Props) {
             polygonSeries.mapPolygons.template.setAll({
                 tooltipText: "{name}: {value}",
                 interactive: true,
+                fill: am5.color(0xcccccc), // Change the default color to gray
+                // stroke: am5.color(0x333333),
             });
 
             // Add heat rules for color scaling
@@ -71,6 +73,22 @@ function ChartMap({ width, height }: Props) {
                     key: "fill",
                 },
             ]);
+
+            // Customize Italy's appearance
+            polygonSeries.mapPolygons.template.adapters.add("fill", function(fill, target) {
+                if (target.dataItem && (target.dataItem.dataContext as { id: string }).id === "IT") {
+                    return am5.color(0x0A36AF); // Change Italy's color to blue
+                }
+                return fill;
+            });
+
+            // Customize Italy's tooltip
+            polygonSeries.mapPolygons.template.adapters.add("tooltipText", function(tooltipText, target) {
+                if (target.dataItem && (target.dataItem.dataContext as { id: string }).id === "IT") {
+                    return "{name}"; // Only show the name for Italy
+                }
+                return tooltipText;
+            });
 
             // Set data for the polygons (you'll replace the hardcoded data with filtered data)
             polygonSeries.data.setAll(
