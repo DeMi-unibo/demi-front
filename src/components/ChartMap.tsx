@@ -10,9 +10,13 @@ interface Props {
     width: string;
     height: string;
     year: string;
+    dataset: "D4" | "D5";
+    gender: string;
+    permit?: string | undefined;
+    root: string;
 }
 
-function ChartMap({ width, height, year }: Props) {
+function ChartMap({ width, height, year, dataset, gender, root, permit }: Props) {
     const url =
         "https://raw.githubusercontent.com/mjavadf/DeMi/refs/heads/main/datasets/mashup/italy_immigration_trends_by_country_and_permit_iso2.csv";
     const [searchTerm] = useState("");
@@ -22,25 +26,30 @@ function ChartMap({ width, height, year }: Props) {
     const { data } = useCSVData(url, searchTerm, sortColumn, ascending);
 
     useEffect(() => {
-        // Filter the data based on your conditions
         if (data) {
-            const filteredData = data.filter(
-                (row) =>
-                    row.Year === Number(year) &&
-                    row.Sex === "Total" &&
-                    row.Dataset_Code === "D4"
-            );
-            console.log(filteredData);
+            const filteredData = data.filter((row) => {
+                if (dataset === "D4") {
+                    return (
+                        row.Year === Number(year) &&
+                        row.Sex === gender &&
+                        row.Dataset_Code === dataset
+                    );
+                } else if (dataset === "D5") {
+                    return (
+                        row.Year === Number(year) &&
+                        row.Sex === gender &&
+                        row.Dataset_Code === dataset &&
+                        (permit ? row.Permit_Type === permit : true)  // Only filter by permit if it's provided
+                    );
+                }
+                return false;
+            });
 
-            // Create root and chart
-            let root = am5.Root.new("chartdiv");
+            let rootElement = am5.Root.new(root);
+            rootElement.setThemes([am5themes_Animated.new(rootElement)]);
 
-            // Set themes
-            root.setThemes([am5themes_Animated.new(root)]);
-
-            // Create map chart
-            let chart = root.container.children.push(
-                am5map.MapChart.new(root, {
+            let chart = rootElement.container.children.push(
+                am5map.MapChart.new(rootElement, {
                     panX: "rotateX",
                     panY: "none",
                     wheelY: "none",
@@ -48,8 +57,8 @@ function ChartMap({ width, height, year }: Props) {
                 })
             );
 
-            let overlay = root.container.children.push(
-                am5.Container.new(root, {
+            let overlay = rootElement.container.children.push(
+                am5.Container.new(rootElement, {
                     width: am5.p100,
                     height: am5.p100,
                     layer: 100,
@@ -57,9 +66,8 @@ function ChartMap({ width, height, year }: Props) {
                 })
             );
 
-            // curtain
             overlay.children.push(
-                am5.Rectangle.new(root, {
+                am5.Rectangle.new(rootElement, {
                     width: am5.p100,
                     height: am5.p100,
                     fill: am5.color(0x000000),
@@ -67,9 +75,8 @@ function ChartMap({ width, height, year }: Props) {
                 })
             );
 
-            // message 
             overlay.children.push(
-                am5.Label.new(root, {
+                am5.Label.new(rootElement, {
                     text: "Use CTRL + Scroll to zoom",
                     fontSize: 30,
                     x: am5.p50,
@@ -80,7 +87,6 @@ function ChartMap({ width, height, year }: Props) {
             );
 
             chart.events.on("wheel", function (ev) {
-                // Show overlay when wheel is used over chart
                 if (ev.originalEvent.ctrlKey) {
                     ev.originalEvent.preventDefault();
                     chart.set("wheelY", "zoom");
@@ -93,42 +99,37 @@ function ChartMap({ width, height, year }: Props) {
                 }
             });
 
-            // Create polygon series for the map and exclude Antarctica and Greenland
             let polygonSeries = chart.series.push(
-                am5map.MapPolygonSeries.new(root, {
+                am5map.MapPolygonSeries.new(rootElement, {
                     geoJSON: am5geodata_worldLow,
                     valueField: "value",
                     calculateAggregates: true,
-                    exclude: ["AQ"], // Exclude Antarctica (AQ) and Greenland (GL)
+                    exclude: ["AQ"], // Exclude Antarctica
                 })
             );
 
             polygonSeries.mapPolygons.template.setAll({
                 tooltipText: "{name}: {value}",
                 interactive: true,
-                fill: am5.color(0xcccccc), // Change the default color to gray
-                // stroke: am5.color(0x333333),
+                fill: am5.color(0xcccccc), // Default color gray
             });
 
-            // Add heat rules for color scaling
             polygonSeries.set("heatRules", [
                 {
                     target: polygonSeries.mapPolygons.template,
                     dataField: "value",
-                    min: am5.color(0x14b8a6), // Change minimum color to green
-                    max: am5.color(0x661f00), // Keep the maximum color as red or choose another color
+                    min: am5.color(0x14b8a6), // Green
+                    max: am5.color(0x661f00), // Red
                     key: "fill",
                 },
             ]);
 
-            // Customize Italy's appearance
             polygonSeries.mapPolygons.template.adapters.add(
                 "fill",
                 function (fill, target) {
                     if (
                         target.dataItem &&
-                        (target.dataItem.dataContext as { id: string }).id ===
-                            "IT"
+                        (target.dataItem.dataContext as { id: string }).id === "IT"
                     ) {
                         return am5.color(0x0a36af); // Change Italy's color to blue
                     }
@@ -136,14 +137,12 @@ function ChartMap({ width, height, year }: Props) {
                 }
             );
 
-            // Customize Italy's tooltip
             polygonSeries.mapPolygons.template.adapters.add(
                 "tooltipText",
                 function (tooltipText, target) {
                     if (
                         target.dataItem &&
-                        (target.dataItem.dataContext as { id: string }).id ===
-                            "IT"
+                        (target.dataItem.dataContext as { id: string }).id === "IT"
                     ) {
                         return "{name}"; // Only show the name for Italy
                     }
@@ -151,27 +150,24 @@ function ChartMap({ width, height, year }: Props) {
                 }
             );
 
-            // Set data for the polygons (you'll replace the hardcoded data with filtered data)
             polygonSeries.data.setAll(
                 filteredData.map((row) => ({
-                    id: row.Country_Code, // Assuming Country_Code matches the id in geoJSON
-                    value: row.Value, // Using the immigration value for heatmap
+                    id: row.Country_Code,
+                    value: row.Value,
                 }))
             );
 
-            // Create heat legend to show the color scale
             let heatLegend = chart.children.push(
-                am5.HeatLegend.new(root, {
+                am5.HeatLegend.new(rootElement, {
                     orientation: "vertical",
-                    startColor: am5.color(0x14b8a6), // Change start color to green
-                    endColor: am5.color(0x661f00), // Keep end color as red or choose another color
+                    startColor: am5.color(0x14b8a6),
+                    endColor: am5.color(0x661f00),
                     startText: "Lowest",
                     endText: "Highest",
                     stepCount: 5,
                 })
             );
 
-            // Set heat legend labels
             heatLegend.startLabel.setAll({
                 fontSize: 12,
                 fill: heatLegend.get("startColor"),
@@ -182,26 +178,18 @@ function ChartMap({ width, height, year }: Props) {
                 fill: heatLegend.get("endColor"),
             });
 
-            // Update heat legend when data is validated
             polygonSeries.events.on("datavalidated", function () {
-                heatLegend.set(
-                    "startValue",
-                    polygonSeries.getPrivate("valueLow")
-                );
-                heatLegend.set(
-                    "endValue",
-                    polygonSeries.getPrivate("valueHigh")
-                );
+                heatLegend.set("startValue", polygonSeries.getPrivate("valueLow"));
+                heatLegend.set("endValue", polygonSeries.getPrivate("valueHigh"));
             });
 
-            // Cleanup on unmount
             return () => {
-                root.dispose();
+                rootElement.dispose();
             };
         }
-    }, [data, year]);
+    }, [data, year, root, gender, permit]);
 
-    return <Box id="chartdiv" width={width} height={height}></Box>;
+    return <Box id={root} width={width} height={height}></Box>;
 }
 
 export default ChartMap;
