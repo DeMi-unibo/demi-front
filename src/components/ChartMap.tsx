@@ -32,18 +32,21 @@ function ChartMap({ width, height, year, dataset, gender, root, permit }: Props)
                     return (
                         row.Year === Number(year) &&
                         row.Sex === gender &&
-                        row.Dataset_Code === dataset
+                        row.Dataset_Code === dataset &&
+                        row.Country_Code !== "IT" // Exclude rows with Country_Code "IT"
                     );
                 } else if (dataset === "D5") {
                     return (
                         row.Year === Number(year) &&
                         row.Sex === gender &&
                         row.Dataset_Code === dataset &&
-                        (permit ? row.Permit_Type === permit : true)  // Only filter by permit if it's provided
+                        (permit ? row.Permit_Type === permit : true) && // Only filter by permit if it's provided
+                        row.Country_Code !== "IT" // Exclude rows with Country_Code "IT"
                     );
                 }
                 return false;
             });
+            
 
             let rootElement = am5.Root.new(root);
             rootElement.setThemes([am5themes_Animated.new(rootElement)]);
@@ -118,8 +121,8 @@ function ChartMap({ width, height, year, dataset, gender, root, permit }: Props)
                 {
                     target: polygonSeries.mapPolygons.template,
                     dataField: "value",
-                    min: am5.color(0x14b8a6), // Green
-                    max: am5.color(0x661f00), // Red
+                    min: am5.color(0x14B8A5), // Light Green
+                    max: am5.color(0x052E29), // Dark Green
                     key: "fill",
                 },
             ]);
@@ -160,8 +163,8 @@ function ChartMap({ width, height, year, dataset, gender, root, permit }: Props)
             let heatLegend = chart.children.push(
                 am5.HeatLegend.new(rootElement, {
                     orientation: "vertical",
-                    startColor: am5.color(0x14b8a6),
-                    endColor: am5.color(0x661f00),
+                    startColor: am5.color(0x14B8A5),
+                    endColor: am5.color(0x052E29),
                     startText: "Lowest",
                     endText: "Highest",
                     stepCount: 5,
