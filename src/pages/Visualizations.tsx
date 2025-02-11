@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import ChartMap from "../components/ChartMap";
 import { SegmentedControl } from "../components/ui/segmented-control";
 import { useState } from "react";
@@ -10,7 +10,8 @@ function Visualizations() {
     return (
         <Box width="100%" p={4}>
             {/* Centered Year Selection Control */}
-            <Flex justify="center" mb={4}>
+            <Flex justify="center" mb={4} direction="column" align="center">
+                <Heading mb={2}>Select the year:</Heading>
                 <SegmentedControl
                     items={years}
                     value={year}
@@ -20,6 +21,10 @@ function Visualizations() {
             </Flex>
 
             {/* Map Visualization */}
+
+            <Heading mb={2} id="map-heading" textAlign="center">
+                Number of immigrants to italy in {year} based on country:{" "}
+            </Heading>
             <ChartMap width="100%" height="500px" year={year} />
         </Box>
     );
