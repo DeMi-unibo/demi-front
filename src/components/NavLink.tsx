@@ -2,18 +2,21 @@ import React from 'react';
 import { Button, ButtonProps } from '@chakra-ui/react';
 import { Link, LinkProps } from 'react-router-dom';
 
-type NavLinkProps = LinkProps & ButtonProps;
+type NavLinkProps = LinkProps & ButtonProps & { isActive: boolean };
 
 const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
-  ({ children, ...props }, ref) => (
-    <Button 
+  ({ children, isActive, ...props }, ref) => (
+    <Button
       as={Link}
       ref={ref as React.Ref<HTMLButtonElement>}
-      variant="ghost" 
+      variant="ghost"
       colorScheme="whiteAlpha"
-      color="white"  // Add this line to ensure white text
-      _hover={{ bg: "teal.600" }}  // Optional: slight background change on hover
-      {...props}
+      color="white"
+      _hover={{ bg: "teal.600" }} // Optional hover effect
+      _active={{ bg: "teal.600" }} // Keep active state consistent
+      fontWeight={isActive ? "bold" : "normal"}  // Make active link bold
+      pointerEvents={isActive ? "none" : "auto"} // Disable clicking for active link
+      {...props}  // Spread any additional props like 'to'
     >
       {children}
     </Button>
