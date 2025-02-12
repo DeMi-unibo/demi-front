@@ -6,6 +6,7 @@ import { useVisualizationTab } from "../hooks/useVisualizationTab";
 import { YearSelector } from "../components/selectors/YearSelector";
 import { VisualizationTabs } from "../components/VisualizationTabs";
 import { ChartVisualization } from "../components/ChartVisualization";
+import DataTable from "../components/DataTable";
 
 function Visualizations() {
     const { years, year, setYear } = useYear();
@@ -19,21 +20,38 @@ function Visualizations() {
             <VisualizationTabs tab={tab} onTabChange={setTab} />
 
             {tab === "D4" ? (
-                <ChartVisualization
-                    year={year}
-                    dataset="D4"
-                    gender={gender}
-                    onGenderChange={setGender}
-                />
+                <>
+                    <ChartVisualization
+                        year={year}
+                        dataset="D4"
+                        gender={gender}
+                        onGenderChange={setGender}
+                    />
+                    <DataTable
+                        url="https://raw.githubusercontent.com/mjavadf/DeMi/refs/heads/main/datasets/mashup/italy_immigration_trends_by_country_and_permit_iso2.csv"
+                        year={year}
+                        gender={gender}
+                        dataset="D4"  // Pass the dataset type for D4
+                    />
+                </>
             ) : (
-                <ChartVisualization
-                    year={year}
-                    dataset="D5"
-                    gender={gender}
-                    onGenderChange={setGender}
-                    permit={permit}
-                    onPermitChange={setPermit}
-                />
+                <>
+                    <ChartVisualization
+                        year={year}
+                        dataset="D5"
+                        gender={gender}
+                        onGenderChange={setGender}
+                        permit={permit}
+                        onPermitChange={setPermit}
+                    />
+                    <DataTable
+                        url="https://raw.githubusercontent.com/mjavadf/DeMi/refs/heads/main/datasets/mashup/italy_immigration_trends_by_country_and_permit_iso2.csv"
+                        year={year}
+                        gender={gender}
+                        permit={permit}
+                        dataset="D5"  // Pass the dataset type for D5
+                    />
+                </>
             )}
         </Box>
     );

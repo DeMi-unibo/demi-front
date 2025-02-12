@@ -24,6 +24,7 @@ function ChartMap({ width, height, year, dataset, gender, root, permit }: Props)
     const [ascending] = useState(true);
 
     const { data } = useCSVData(url, searchTerm, sortColumn, ascending);
+    // console.log(data);
 
     useEffect(() => {
         if (data) {
