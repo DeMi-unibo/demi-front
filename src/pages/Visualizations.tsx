@@ -7,6 +7,7 @@ import { YearSelector } from "../components/selectors/YearSelector";
 import { VisualizationTabs } from "../components/VisualizationTabs";
 import { VisualizationTab } from "../components/VisualizationTab";
 import DataTable from "../components/DataTable";
+import Top5CountriesBarChart from "../components/Top5CountriesBarChart";
 
 function Visualizations() {
     const { years, year, setYear } = useYear();
@@ -53,6 +54,10 @@ function Visualizations() {
                     />
                 </>
             )}
+
+            <div style={{marginTop:"32px"}}/>
+
+            <Top5CountriesBarChart />
         </Box>
     );
 }
