@@ -5,7 +5,7 @@ import { usePermit } from "../hooks/usePermit";
 import { useVisualizationTab } from "../hooks/useVisualizationTab";
 import { YearSelector } from "../components/selectors/YearSelector";
 import { VisualizationTabs } from "../components/VisualizationTabs";
-import { ChartVisualization } from "../components/ChartVisualization";
+import { VisualizationTab } from "../components/VisualizationTab";
 import DataTable from "../components/DataTable";
 
 function Visualizations() {
@@ -21,7 +21,7 @@ function Visualizations() {
 
             {tab === "D4" ? (
                 <>
-                    <ChartVisualization
+                    <VisualizationTab
                         year={year}
                         dataset="D4"
                         gender={gender}
@@ -36,7 +36,7 @@ function Visualizations() {
                 </>
             ) : (
                 <>
-                    <ChartVisualization
+                    <VisualizationTab
                         year={year}
                         dataset="D5"
                         gender={gender}
