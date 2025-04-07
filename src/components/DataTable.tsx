@@ -39,52 +39,48 @@ const DataTable = ({
 
     // useEffect to filter data based on year, gender, permit, and dataset type (D4 or D5)
     useEffect(() => {
-        if (data) {
-            const newFilteredData = data.filter((row) => {
-                if (dataset === "D4") {
-                    return (
-                        row.Year === Number(year) &&
-                        row.Sex === gender &&
-                        row.Dataset_Code === dataset &&
-                        row.Country_Code !== "IT" // Exclude rows with Country_Code "IT"
-                    );
-                } else if (dataset === "D5") {
-                    return (
-                        row.Year === Number(year) &&
-                        row.Sex === gender &&
-                        row.Dataset_Code === dataset &&
-                        (permit ? row.Permit_Type === permit : true) && // Only filter by permit if it's provided
-                        row.Country_Code !== "IT" // Exclude rows with Country_Code "IT"
-                    );
-                }
-                return false;
-            });
-            setFilteredData(newFilteredData); // Update filtered data
-        }
-    }, [data, year, gender, permit, dataset]); // Dependency array ensures it updates when any of these change
-
-    // Sorting logic applied after filtering
-    useEffect(() => {
-        const sortedData = [...filteredData]; // Create a copy of filteredData
+        if (!data) return;
+      
+        let newFilteredData = data.filter((row) => {
+          if (dataset === "D4") {
+            return (
+              String(row.Year) === year &&
+              row.Sex === gender &&
+              row.Dataset_Code === dataset &&
+              row.Country_Code !== "IT"
+            );
+          } else if (dataset === "D5") {
+            return (
+              String(row.Year) === year &&
+              row.Sex === gender &&
+              row.Dataset_Code === dataset &&
+              (permit ? row.Permit_Type === permit : true) &&
+              row.Country_Code !== "IT"
+            );
+          }
+          return false;
+        });
+      
         if (sortColumn) {
-            sortedData.sort((a, b) => {
-                const aValue = a[sortColumn];
-                const bValue = b[sortColumn];
-
-                if (typeof aValue === "string" && typeof bValue === "string") {
-                    return ascending
-                        ? aValue.localeCompare(bValue)
-                        : bValue.localeCompare(aValue);
-                }
-                if (typeof aValue === "number" && typeof bValue === "number") {
-                    return ascending ? aValue - bValue : bValue - aValue;
-                }
-                return 0;
-            });
-            setFilteredData(sortedData); // Set the sorted data
+          newFilteredData.sort((a, b) => {
+            const aValue = a[sortColumn];
+            const bValue = b[sortColumn];
+      
+            if (typeof aValue === "string" && typeof bValue === "string") {
+              return ascending
+                ? aValue.localeCompare(bValue)
+                : bValue.localeCompare(aValue);
+            }
+            if (typeof aValue === "number" && typeof bValue === "number") {
+              return ascending ? aValue - bValue : bValue - aValue;
+            }
+            return 0;
+          });
         }
-    }, [filteredData, sortColumn, ascending]); // Re-run sorting when filteredData, sortColumn, or ascending changes
-
+      
+        setFilteredData(newFilteredData);
+      }, [data, year, gender, permit, dataset, sortColumn, ascending]);
+      
     // Pagination logic
     const paginatedData = filteredData
         ? filteredData.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
