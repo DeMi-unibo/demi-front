@@ -18,7 +18,7 @@ export function GenderSelector({
             <SegmentedControl
                 items={genders}
                 value={gender}
-                onValueChange={(value) => onChange(value.value)}
+                onValueChange={(value) => value.value !== null && onChange(value.value)}
                 colorPalette="pink"
             />
         </Flex>

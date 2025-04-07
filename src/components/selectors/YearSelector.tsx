@@ -14,7 +14,7 @@ export function YearSelector({ years, year, onChange }: YearSelectorProps) {
             <SegmentedControl
                 items={years}
                 value={year}
-                onValueChange={(value) => onChange(value.value)}
+                onValueChange={(value) => value.value !== null && onChange(value.value)}
                 colorPalette="pink"
             />
         </Flex>

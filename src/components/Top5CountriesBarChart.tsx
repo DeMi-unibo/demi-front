@@ -93,7 +93,7 @@ function Top5CountriesBarChart() {
             })
         );
 
-        let curtain = overlay.children.push(
+        overlay.children.push(
             am5.Rectangle.new(root, {
                 width: am5.p100,
                 height: am5.p100,
@@ -102,7 +102,7 @@ function Top5CountriesBarChart() {
             })
         );
 
-        let message = overlay.children.push(
+        overlay.children.push(
             am5.Label.new(root, {
                 text: "Use CTRL + Scroll to zoom",
                 fontSize: 30,

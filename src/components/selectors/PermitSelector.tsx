@@ -18,7 +18,7 @@ export function PermitSelector({
             <SegmentedControl
                 items={permits}
                 value={permit}
-                onValueChange={(value) => onChange(value.value)}
+                onValueChange={(value) => value.value !== null && onChange(value.value)}
                 colorPalette="pink"
             />
         </Flex>
