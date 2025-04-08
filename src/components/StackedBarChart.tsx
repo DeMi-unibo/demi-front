@@ -23,7 +23,7 @@ function StackedBarChart() {
     );
 
     const grouped = filtered.reduce((acc: any, row: any) => {
-      const year = row.Year;
+      const year = String(row.Year);
       const permitType = row.Permit_Type;
       const value = Number(row.Value);
 
