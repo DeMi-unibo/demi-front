@@ -1,16 +1,16 @@
 import { Box, Heading } from "@chakra-ui/react";
-import { useYear } from "../hooks/useYear";
-import { useGender } from "../hooks/useGender";
-import { usePermit } from "../hooks/usePermit";
-import { useVisualizationTab } from "../hooks/useVisualizationTab";
-import { YearSelector } from "../components/selectors/YearSelector";
-import { VisualizationTabs } from "../components/VisualizationTabs";
-import { VisualizationTab } from "../components/VisualizationTab";
-import DataTable from "../components/DataTable";
-import Top5CountriesBarChart from "../components/Top5CountriesBarChart";
-import StackedBarChart from "../components/StackedBarChart";
+import { useYear } from "../../hooks/useYear";
+import { useGender } from "../../hooks/useGender";
+import { usePermit } from "../../hooks/usePermit";
+import { useVisualizationTab } from "../../hooks/useVisualizationTab";
+import { YearSelector } from "../../components/selectors/YearSelector";
+import { VisualizationTabs } from "../../components/VisualizationTabs";
+import { VisualizationTab } from "../../components/VisualizationTab";
+import DataTable from "../../components/DataTable";
+import Top5CountriesBarChart from "../../components/Top5CountriesBarChart";
+import StackedBarChart from "../../components/StackedBarChart";
 
-function Visualizations() {
+function Geographical() {
     const { years, year, setYear } = useYear();
     const { gender, setGender } = useGender();
     const { permit, setPermit } = usePermit();
@@ -76,4 +76,4 @@ function Visualizations() {
     );
 }
 
-export default Visualizations;
+export default Geographical;
