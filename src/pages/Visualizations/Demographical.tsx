@@ -1,5 +1,3 @@
-import React from 'react'
-
 function Demographical() {
   return (
     <div>Demographical</div>
