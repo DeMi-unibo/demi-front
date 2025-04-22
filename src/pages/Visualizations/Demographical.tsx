@@ -1,5 +1,6 @@
 import EmpVsUnEmpChart from "../../components/EmpVsUnEmpChart";
 // import ItalyDemographic from "../../components/ItalyDemographic";
+import TerritoryEmployment2023 from "../../components/TerritoryEmployment2023";
 import WorkTypeChart from "../../components/WorkTypeChart";
 import { useCSVData } from "../../hooks/useCSVData";
 
@@ -43,6 +44,7 @@ function Demographical() {
         <>
                 <EmpVsUnEmpChart data={csvData} chartId="empUnempChart" />
                 <WorkTypeChart data={csvData} chartId="workTypeDistributionChart" />
+                <TerritoryEmployment2023 data={csvData} chartId="territoryEmployment2023Chart" />
                 {/* <ItalyDemographic data={csvData} /> */}
         </>
     );
