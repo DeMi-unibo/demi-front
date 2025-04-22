@@ -1,5 +1,6 @@
 import EmpVsUnEmpChart from "../../components/EmpVsUnEmpChart";
 // import ItalyDemographic from "../../components/ItalyDemographic";
+import WorkTypeChart from "../../components/WorkTypeChart";
 import { useCSVData } from "../../hooks/useCSVData";
 
 const DATASET_URL =
@@ -41,6 +42,7 @@ function Demographical() {
     return (
         <>
                 <EmpVsUnEmpChart data={csvData} chartId="empUnempChart" />
+                <WorkTypeChart data={csvData} chartId="workTypeDistributionChart" />
                 {/* <ItalyDemographic data={csvData} /> */}
         </>
     );
