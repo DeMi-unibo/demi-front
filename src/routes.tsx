@@ -5,6 +5,7 @@ import Metadata from "./pages/Metadata";
 import Documentation from "./pages/Documentation";
 import RootLayout from "./RootLayout";
 import Demographical from "./pages/Visualizations/Demographical";
+import InformationPage from "./pages/InformationPage";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: "visualizations/demographical", element: <Demographical /> },
       { path: 'metadata', element: <Metadata /> },
       { path: 'documentation', element: <Documentation /> },
+      { path: 'information', element: <InformationPage /> },
     ]
   }
 ]);

@@ -33,6 +33,9 @@ function Navigation() {
             <NavLink to="/demi-front/" isActive={location.pathname === "/demi-front/"}>
               Home
             </NavLink>
+            <NavLink to="/demi-front/information" isActive={location.pathname === "/demi-front/information"}>
+              information
+            </NavLink>
 
             <Menu.Root>
               <Menu.Trigger asChild>
