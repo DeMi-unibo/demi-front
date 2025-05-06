@@ -7,7 +7,7 @@ function HomePage() {
         {/* Image Placeholder */}
         <Box mb={8} overflow="hidden" borderRadius="md">
           <Image 
-            src="public/visa-photo.jpg" 
+            src="https://raw.githubusercontent.com/DeMi-unibo/demi-front/refs/heads/main/public/visa-photo.jpg" 
             alt="Immigration visualization"
             w="full"
             maxH="400px"
