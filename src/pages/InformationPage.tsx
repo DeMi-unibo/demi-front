@@ -88,15 +88,6 @@ import {
             <Box as="li" mb={2}><Link href="https://tanstack.com/terms" color="teal.500">TanStack Query</Link></Box>
             <Box as="li"><Link href="https://github.com/mholt/PapaParse" color="teal.500">PapaParse</Link></Box>
           </Box>
-  
-          <Heading size="md" mt={4}>Design Assets</Heading>
-          <Text>
-            The background image on the home page is from{" "}
-            <Link href="https://www.freepik.com/legal/terms-of-use#nav-freepik-agreement" color="teal.500">
-              Freepik
-            </Link>{" "}
-            and used under a free license.
-          </Text>
         </Stack>
       </Box>
     )
