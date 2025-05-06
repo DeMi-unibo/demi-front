@@ -1,6 +1,5 @@
 {
   "files": [],
-  "types": ["@emotion/react/types/css-prop"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
