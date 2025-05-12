@@ -1,4 +1,3 @@
-import { color } from "@amcharts/amcharts5";
 import {
     Box,
     Container,
