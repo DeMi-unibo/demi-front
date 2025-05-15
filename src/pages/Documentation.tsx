@@ -1662,7 +1662,7 @@ function Documentation() {
                     <Heading as="h2" size="lg">
                         9. Visualization
                     </Heading>
-                    </Heading>
+                    
                     <Text mb={4}>
                         The visualization component of DeMi combines <em>geographical</em> and <em>demographic</em> analyses to provide a comprehensive understanding of migration trends in Italy. It was developed using <strong>React</strong> and <strong>Chakra UI</strong> for front-end design, <strong>amCharts</strong> for dynamic chart rendering, <strong>TanStack Query</strong> for efficient data fetching, and <strong>PapaParse</strong> for CSV data processing. Below are the key visualizations generated:
                     </Text>
@@ -1672,12 +1672,12 @@ function Documentation() {
                     <Text mb={2}>
                         A choropleth map displaying immigration trends to Italy, filtered by year (2019–2023), gender (Total/Male/Female), and permit type. Users can:
                     </Text>
-                    <List spacing={2} mb={4}>
+                    <List.Root gap={2} mb={4}>
                         <List.Item>• Select a year (2019–2023) to update the map and dataset</List.Item>
                         <List.Item>• Filter by gender to analyze sex-specific migration patterns (e.g., female immigrants from Russia: 2,275 in 2019)</List.Item>
                         <List.Item>• Search for countries to highlight specific regions (e.g., "Russia" or "Ukraine")</List.Item>
                         <List.Item>• Hover over countries to view aggregated values, such as total immigrants or permit types</List.Item>
-                    </List>
+                    </List.Root>
 
                     <Text fontWeight="semibold" mb={2}>Dataset table:</Text>
                     <Text mb={4}>
@@ -1685,10 +1685,10 @@ function Documentation() {
                     </Text>
 
                     <Heading as="h4" size="sm" mb={2}>Insights:</Heading>
-                    <List spacing={2} mb={6}>
+                    <List.Root gap={2} mb={6}>
                         <List.Item>• Albania, Romania and Morocco dominate immigration flows, with Bangladesh emerging as a notable contributor in 2021</List.Item>
                         <List.Item>• Female immigrants outnumber males in every year</List.Item>
-                    </List>
+                    </List.Root>
 
                     <Text fontWeight="semibold" mb={2}>2. Immigration Trends by Country of Origin (Top 5 Countries)</Text>
                     <Text mb={4}>
@@ -1696,11 +1696,11 @@ function Documentation() {
                     </Text>
 
                     <Heading as="h4" size="sm" mb={2}>Insights:</Heading>
-                    <List spacing={2} mb={6}>
+                    <List.Root gap={2} mb={6}>
                         <List.Item>• Romania and Albania consistently rank as top sources</List.Item>
                         <List.Item>• Ukraine shows significant surge post-2022 due to geopolitical events</List.Item>
                         <List.Item>• Bangladesh and Morocco exhibit steady growth</List.Item>
-                    </List>
+                    </List.Root>
 
                     <Text fontWeight="semibold" mb={2}>3. Residence Permits by Type (Short-term vs. Long-term)</Text>
                     <Text mb={4}>
@@ -1708,10 +1708,10 @@ function Documentation() {
                     </Text>
 
                     <Heading as="h4" size="sm" mb={2}>Insights:</Heading>
-                    <List spacing={2} mb={6}>
+                    <List.Root gap={2} mb={6}>
                         <List.Item>• Long-term permits dominate, peaking at 2.1 million in 2023</List.Item>
                         <List.Item>• Short-term permits fluctuate but remain secondary</List.Item>
-                    </List>
+                    </List.Root>
 
                     <Heading as="h3" size="md" mt={4}>Demographic Analysis</Heading>
                     <Text fontWeight="semibold" mb={2}>1. Italy Employment & Unemployment Rate (%) - Total Population</Text>
@@ -1726,11 +1726,11 @@ function Documentation() {
 
                     <Text fontWeight="semibold" mb={2}>3. Employment vs. Unemployment by Territory (2023)</Text>
                     <Text mb={2}>A horizontal bar chart showing regional disparities:</Text>
-                    <List spacing={2} mb={4}>
+                    <List.Root gap={2} mb={4}>
                         <List.Item>• Nord-ovest: 64% employed, 9% unemployed</List.Item>
                         <List.Item>• Nord-est: 65% employed, 9% unemployed</List.Item>
                         <List.Item>• Mezzogiorno: 50% employed, 19% unemployed</List.Item>
-                    </List>
+                    </List.Root>
                     
                     <Stack gap={4} direction={{ base: "column", md: "row" }}>
                         <Button variant="outline" asChild>
