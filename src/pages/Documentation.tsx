@@ -75,19 +75,13 @@ function Documentation() {
                         In recent years, Italy has experienced a significant
                         increase in immigration, impacting various sectors of
                         society.{" "}
-                        <Link
-                            href="https://www.repubblica.it/cronaca/2024/02/13/news/immigrati_record_di_assunzioni_nel_2023_piu_stranieri_residenti_regolari_effetto_della_sanatoria_del_2020-422119125"
-                            color="teal.500"
-                        >
+                        <Link href="https://www.repubblica.it/cronaca/2024/02/13/news/immigrati_record_di_assunzioni_nel_2023_piu_stranieri_residenti_regolari_effetto_della_sanatoria_del_2020-422119125">
                             According to a 2024 report by La Repubblica
                         </Link>
                         , the foreign resident population in Italy has grown
                         notably, with a significant rise in the number of
                         regular foreign workers. Additionally,{" "}
-                        <Link
-                            href="https://finanza.repubblica.it/News/2024/10/15/lavoro_da%C2%A0immigrati_l8_8_percento_del_pil_italiano_punte_in_agricoltura_16_4percento_e_costruzioni_15_1percento_-147/"
-                            color="teal.500"
-                        >
+                        <Link href="https://finanza.repubblica.it/News/2024/10/15/lavoro_da%C2%A0immigrati_l8_8_percento_del_pil_italiano_punte_in_agricoltura_16_4percento_e_costruzioni_15_1percento_-147/">
                             the number of foreign entrepreneurs has been on the
                             rise
                         </Link>
@@ -100,10 +94,7 @@ function Documentation() {
                         In response, DeMi (Decoding Migration) has been carried
                         out for the exam "Open Access and Digital Ethics" as a
                         part of the{" "}
-                        <Link
-                            href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge"
-                            color="teal.500"
-                        >
+                        <Link href="https://corsi.unibo.it/2cycle/DigitalHumanitiesKnowledge">
                             Digital Humanities and Digital Knowledge course
                         </Link>{" "}
                         at the University of Bologna. The two contributors to
@@ -145,10 +136,7 @@ function Documentation() {
                         ethical, and technical perspectives. The datasets were
                         processed to create mashed-up data, incorporating RDF
                         models aligned with the{" "}
-                        <Link
-                            href="https://www.w3.org/TR/vocab-dcat-3/"
-                            color="teal.500"
-                        >
+                        <Link href="https://www.w3.org/TR/vocab-dcat-3/">
                             DCAT-AP
                         </Link>{" "}
                         ontology.
@@ -158,10 +146,7 @@ function Documentation() {
                         interactive and user-friendly website, supported by
                         documentation. Additionally, all scripts and derived
                         datasets are shared on the project's{" "}
-                        <Link
-                            href="https://github.com/mjavadf/DeMi/tree/main"
-                            color="teal.500"
-                        >
+                        <Link href="https://github.com/mjavadf/DeMi/tree/main">
                             GitHub repository
                         </Link>{" "}
                         under an open license, ensuring that the research is
@@ -1662,76 +1647,163 @@ function Documentation() {
                     <Heading as="h2" size="lg">
                         9. Visualization
                     </Heading>
-                    
+
                     <Text mb={4}>
-                        The visualization component of DeMi combines <em>geographical</em> and <em>demographic</em> analyses to provide a comprehensive understanding of migration trends in Italy. It was developed using <strong>React</strong> and <strong>Chakra UI</strong> for front-end design, <strong>amCharts</strong> for dynamic chart rendering, <strong>TanStack Query</strong> for efficient data fetching, and <strong>PapaParse</strong> for CSV data processing. Below are the key visualizations generated:
+                        The visualization component of DeMi combines{" "}
+                        <em>geographical</em> and <em>demographic</em> analyses
+                        to provide a comprehensive understanding of migration
+                        trends in Italy. It was developed using{" "}
+                        <strong>React</strong> and <strong>Chakra UI</strong>{" "}
+                        for front-end design, <strong>amCharts</strong> for
+                        dynamic chart rendering, <strong>TanStack Query</strong>{" "}
+                        for efficient data fetching, and{" "}
+                        <strong>PapaParse</strong> for CSV data processing.
+                        Below are the key visualizations generated:
                     </Text>
 
-                    <Heading as="h3" size="md" mt={4}>Geographical Analysis</Heading>
-                    <Text fontWeight="semibold" mb={2}>1. Interactive Geographic Map with Filtered Dataset</Text>
+                    <Heading as="h3" size="md" mt={4}>
+                        Geographical Analysis
+                    </Heading>
+                    <Text fontWeight="semibold" mb={2}>
+                        1. Interactive Geographic Map with Filtered Dataset
+                    </Text>
                     <Text mb={2}>
-                        A choropleth map displaying immigration trends to Italy, filtered by year (2019–2023), gender (Total/Male/Female), and permit type. Users can:
+                        A choropleth map displaying immigration trends to Italy,
+                        filtered by year (2019–2023), gender
+                        (Total/Male/Female), and permit type. Users can:
                     </Text>
                     <List.Root gap={2} mb={4}>
-                        <List.Item>• Select a year (2019–2023) to update the map and dataset</List.Item>
-                        <List.Item>• Filter by gender to analyze sex-specific migration patterns (e.g., female immigrants from Russia: 2,275 in 2019)</List.Item>
-                        <List.Item>• Search for countries to highlight specific regions (e.g., "Russia" or "Ukraine")</List.Item>
-                        <List.Item>• Hover over countries to view aggregated values, such as total immigrants or permit types</List.Item>
+                        <List.Item>
+                            • Select a year (2019–2023) to update the map and
+                            dataset
+                        </List.Item>
+                        <List.Item>
+                            • Filter by gender to analyze sex-specific migration
+                            patterns (e.g., female immigrants from Russia: 2,275
+                            in 2019)
+                        </List.Item>
+                        <List.Item>
+                            • Search for countries to highlight specific regions
+                            (e.g., "Russia" or "Ukraine")
+                        </List.Item>
+                        <List.Item>
+                            • Hover over countries to view aggregated values,
+                            such as total immigrants or permit types
+                        </List.Item>
                     </List.Root>
 
-                    <Text fontWeight="semibold" mb={2}>Dataset table:</Text>
+                    <Text fontWeight="semibold" mb={2}>
+                        Dataset table:
+                    </Text>
                     <Text mb={4}>
-                        A dynamic table below the map lists granular data including year, country codes, gender breakdown, permit types, and source dataset identifiers.
+                        A dynamic table below the map lists granular data
+                        including year, country codes, gender breakdown, permit
+                        types, and source dataset identifiers.
                     </Text>
 
-                    <Heading as="h4" size="sm" mb={2}>Insights:</Heading>
+                    <Heading as="h4" size="sm" mb={2}>
+                        Insights:
+                    </Heading>
                     <List.Root gap={2} mb={6}>
-                        <List.Item>• Albania, Romania and Morocco dominate immigration flows, with Bangladesh emerging as a notable contributor in 2021</List.Item>
-                        <List.Item>• Female immigrants outnumber males in every year</List.Item>
+                        <List.Item>
+                            • Albania, Romania and Morocco dominate immigration
+                            flows, with Bangladesh emerging as a notable
+                            contributor in 2021
+                        </List.Item>
+                        <List.Item>
+                            • Female immigrants outnumber males in every year
+                        </List.Item>
                     </List.Root>
 
-                    <Text fontWeight="semibold" mb={2}>2. Immigration Trends by Country of Origin (Top 5 Countries)</Text>
+                    <Text fontWeight="semibold" mb={2}>
+                        2. Immigration Trends by Country of Origin (Top 5
+                        Countries)
+                    </Text>
                     <Text mb={4}>
-                        A time-series bar chart illustrating the top five countries of origin from 2019 to 2024. Users can toggle between years and hover to view exact figures (e.g., Ukraine: 33,897 in 2023).
+                        A time-series bar chart illustrating the top five
+                        countries of origin from 2019 to 2024. Users can toggle
+                        between years and hover to view exact figures (e.g.,
+                        Ukraine: 33,897 in 2023).
                     </Text>
 
-                    <Heading as="h4" size="sm" mb={2}>Insights:</Heading>
+                    <Heading as="h4" size="sm" mb={2}>
+                        Insights:
+                    </Heading>
                     <List.Root gap={2} mb={6}>
-                        <List.Item>• Romania and Albania consistently rank as top sources</List.Item>
-                        <List.Item>• Ukraine shows significant surge post-2022 due to geopolitical events</List.Item>
-                        <List.Item>• Bangladesh and Morocco exhibit steady growth</List.Item>
+                        <List.Item>
+                            • Romania and Albania consistently rank as top
+                            sources
+                        </List.Item>
+                        <List.Item>
+                            • Ukraine shows significant surge post-2022 due to
+                            geopolitical events
+                        </List.Item>
+                        <List.Item>
+                            • Bangladesh and Morocco exhibit steady growth
+                        </List.Item>
                     </List.Root>
 
-                    <Text fontWeight="semibold" mb={2}>3. Residence Permits by Type (Short-term vs. Long-term)</Text>
+                    <Text fontWeight="semibold" mb={2}>
+                        3. Residence Permits by Type (Short-term vs. Long-term)
+                    </Text>
                     <Text mb={4}>
-                        A stacked area chart comparing permit categories with dynamic filters for specific permit types or time ranges.
+                        A stacked area chart comparing permit categories with
+                        dynamic filters for specific permit types or time
+                        ranges.
                     </Text>
 
-                    <Heading as="h4" size="sm" mb={2}>Insights:</Heading>
+                    <Heading as="h4" size="sm" mb={2}>
+                        Insights:
+                    </Heading>
                     <List.Root gap={2} mb={6}>
-                        <List.Item>• Long-term permits dominate, peaking at 2.1 million in 2023</List.Item>
-                        <List.Item>• Short-term permits fluctuate but remain secondary</List.Item>
+                        <List.Item>
+                            • Long-term permits dominate, peaking at 2.1 million
+                            in 2023
+                        </List.Item>
+                        <List.Item>
+                            • Short-term permits fluctuate but remain secondary
+                        </List.Item>
                     </List.Root>
 
-                    <Heading as="h3" size="md" mt={4}>Demographic Analysis</Heading>
-                    <Text fontWeight="semibold" mb={2}>1. Italy Employment & Unemployment Rate (%) - Total Population</Text>
+                    <Heading as="h3" size="md" mt={4}>
+                        Demographic Analysis
+                    </Heading>
+                    <Text fontWeight="semibold" mb={2}>
+                        1. Italy Employment & Unemployment Rate (%) - Total
+                        Population
+                    </Text>
                     <Text mb={4}>
-                        A line chart tracking labor market trends with unemployment peaking at 14.5% in 2021 (COVID-19 impact) but dropping to 11% by 2023.
+                        A line chart tracking labor market trends with
+                        unemployment peaking at 14.5% in 2021 (COVID-19 impact)
+                        but dropping to 11% by 2023.
                     </Text>
 
-                    <Text fontWeight="semibold" mb={2}>2. Work Type Distribution Over Time (2020–2023)</Text>
+                    <Text fontWeight="semibold" mb={2}>
+                        2. Work Type Distribution Over Time (2020–2023)
+                    </Text>
                     <Text mb={4}>
-                        Full-time employment rose from 1.6 million (2020) to 1.8 million (2023), reflecting post-pandemic recovery.
+                        Full-time employment rose from 1.6 million (2020) to 1.8
+                        million (2023), reflecting post-pandemic recovery.
                     </Text>
 
-                    <Text fontWeight="semibold" mb={2}>3. Employment vs. Unemployment by Territory (2023)</Text>
-                    <Text mb={2}>A horizontal bar chart showing regional disparities:</Text>
+                    <Text fontWeight="semibold" mb={2}>
+                        3. Employment vs. Unemployment by Territory (2023)
+                    </Text>
+                    <Text mb={2}>
+                        A horizontal bar chart showing regional disparities:
+                    </Text>
                     <List.Root gap={2} mb={4}>
-                        <List.Item>• Nord-ovest: 64% employed, 9% unemployed</List.Item>
-                        <List.Item>• Nord-est: 65% employed, 9% unemployed</List.Item>
-                        <List.Item>• Mezzogiorno: 50% employed, 19% unemployed</List.Item>
+                        <List.Item>
+                            • Nord-ovest: 64% employed, 9% unemployed
+                        </List.Item>
+                        <List.Item>
+                            • Nord-est: 65% employed, 9% unemployed
+                        </List.Item>
+                        <List.Item>
+                            • Mezzogiorno: 50% employed, 19% unemployed
+                        </List.Item>
                     </List.Root>
-                    
+
                     <Stack gap={4} direction={{ base: "column", md: "row" }}>
                         <Button variant="outline" asChild>
                             <RouterLink to="/demi-front/visualizations/geographical">
@@ -1800,25 +1872,50 @@ function Documentation() {
                         11. Conclusions
                     </Heading>
                     <Text mb={4}>
-                        The DeMi project systematically examines Italian migration patterns using publicly available datasets, addressing both technical hurdles (e.g., legacy data formats and metadata standardization) and ethical issues (e.g., privacy under GDPR). Its analysis reveals notable trends: by 2023–24 Ukraine became{" "}
-                        <Link href="https://schengenvisainfo.com/news/italy-issued-over-330000-residence-permits-to-foreigners-in-2023/" color="teal.500">
+                        The DeMi project systematically examines Italian
+                        migration patterns using publicly available datasets,
+                        addressing both technical hurdles (e.g., legacy data
+                        formats and metadata standardization) and ethical issues
+                        (e.g., privacy under GDPR). Its analysis reveals notable
+                        trends: by 2023–24 Ukraine became{" "}
+                        <Link href="https://schengenvisainfo.com/news/italy-issued-over-330000-residence-permits-to-foreigners-in-2023/">
                             the largest foreign-born community in Italy
-                        </Link>, overtaking traditional origin countries amid ongoing external crises.
+                        </Link>
+                        , overtaking traditional origin countries amid ongoing
+                        external crises.
                     </Text>
                     <Text mb={4}>
-                        The vast majority of immigrants hold long-term residence permits –{" "}
-                        <Link href="https://www.pragueprocess.eu/en/countries/866-italy?tmpl=component&ml=1#:~:text=At%20the%20end%20of%202020%2C,compared%20to" color="teal.500">
+                        The vast majority of immigrants hold long-term residence
+                        permits –{" "}
+                        <Link href="https://www.pragueprocess.eu/en/countries/866-italy?tmpl=component&ml=1#:~:text=At%20the%20end%20of%202020%2C,compared%20to">
                             on the order of two-thirds of all permits
-                        </Link> – indicating deep roots and underscoring the need for long-term integration strategies. The study also documents persistent labor-market disparities: even highly{" "}
-                        <Link href="https://unbiasthenews.org/blocked-at-every-turn-why-migrants-in-italy-face-one-of-europes-worse-brain-waste-gaps/#:~:text=Educated%20migrants%20in%20Italy%20may,of%20the%20highest%20in%20Europe" color="teal.500">
-                            educated migrants face unemployment rates far above those of comparably educated natives
-                        </Link>, a gap particularly acute in economically weaker regions (e.g., Southern Italy).
+                        </Link>{" "}
+                        – indicating deep roots and underscoring the need for
+                        long-term integration strategies. The study also
+                        documents persistent labor-market disparities: even
+                        highly{" "}
+                        <Link href="https://unbiasthenews.org/blocked-at-every-turn-why-migrants-in-italy-face-one-of-europes-worse-brain-waste-gaps/#:~:text=Educated%20migrants%20in%20Italy%20may,of%20the%20highest%20in%20Europe">
+                            educated migrants face unemployment rates far above
+                            those of comparably educated natives
+                        </Link>
+                        , a gap particularly acute in economically weaker
+                        regions (e.g., Southern Italy).
                     </Text>
                     <Text mb={4}>
-                        In terms of impact, DeMi's outputs aid policymakers through timely statistics, serve as reusable RDF-formatted datasets for researchers, and engage the public via interactive visualizations. The work overcame challenges like outdated source data and laborious cleaning to meet European metadata standards (DCAT-AP compliant RDF), ensuring transparency through open licensing (CC BY-SA 4.0).
+                        In terms of impact, DeMi's outputs aid policymakers
+                        through timely statistics, serve as reusable
+                        RDF-formatted datasets for researchers, and engage the
+                        public via interactive visualizations. The work overcame
+                        challenges like outdated source data and laborious
+                        cleaning to meet European metadata standards (DCAT-AP
+                        compliant RDF), ensuring transparency through open
+                        licensing (CC BY-SA 4.0).
                     </Text>
                     <Text>
-                        Future efforts will expand the platform by incorporating additional sources (such as Eurostat), developing predictive modeling of migration flows, and enhancing multilingual user interfaces.
+                        Future efforts will expand the platform by incorporating
+                        additional sources (such as Eurostat), developing
+                        predictive modeling of migration flows, and enhancing
+                        multilingual user interfaces.
                     </Text>
                 </Box>
             </VStack>
