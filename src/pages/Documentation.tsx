@@ -5,15 +5,21 @@ import {
     Text,
     VStack,
     List,
-    Link,
     Table,
     Image,
     Button,
     Stack,
+    chakra
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
 function Documentation() {
+    const Link = chakra("a", {
+        base: {
+            color: "teal.500",
+        },
+    });
+
     return (
         <Container maxW="container.lg" py={6}>
             <VStack align="start" padding={6} gap={8}>
