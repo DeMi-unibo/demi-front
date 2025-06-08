@@ -582,7 +582,7 @@ function Documentation() {
                     </Text>
 
                     <Box mb={2}>
-                        <Image src="https://private-user-images.githubusercontent.com/145998112/403899802-58a8f18e-d348-499f-9db5-b64ca6c3133f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDcwNTM1MjEsIm5iZiI6MTc0NzA1MzIyMSwicGF0aCI6Ii8xNDU5OTgxMTIvNDAzODk5ODAyLTU4YThmMThlLWQzNDgtNDk5Zi05ZGI1LWI2NGNhNmMzMTMzZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTEyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUxMlQxMjMzNDFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05YjZkYzhhODUzZTlkOTExODczM2YwNzY1NjNiZDIwMWY0ODc0NTU2OTJhYzk5OTZjNWQ0OTcxZDRiZmFjNzM4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.qk_zduVZYGlA1Ywi-U6Y_REOxrbsEcc3MUrRm0SiDSU" />
+                        <Image src="https://raw.githubusercontent.com/DeMi-unibo/demi-front/refs/heads/main/public/403899802-58a8f18e-d348-499f-9db5-b64ca6c3133f.png" />
                         <Text fontSize="sm" color="gray.600">
                             Picture 1
                         </Text>
