@@ -72,7 +72,7 @@ function Documentation() {
                         </List.Item>
                         
                         <List.Item>
-                            <Link href="#Conclusions">
+                            <Link href="#conclusions">
                                 11. Conclusions
                             </Link>
                         </List.Item>
