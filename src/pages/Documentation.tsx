@@ -70,6 +70,12 @@ function Documentation() {
                                 10. RDF Assertion of Metadata
                             </Link>
                         </List.Item>
+                        
+                        <List.Item>
+                            <Link href="#Conclusions">
+                                11. Conclusions
+                            </Link>
+                        </List.Item>
                     </List.Root>
                 </Box>
 
