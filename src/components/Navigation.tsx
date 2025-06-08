@@ -34,7 +34,7 @@ function Navigation() {
               Home
             </NavLink>
             <NavLink to="/demi-front/information" isActive={location.pathname === "/demi-front/information"}>
-              information
+              Information
             </NavLink>
 
             <Menu.Root>
